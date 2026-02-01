@@ -8,8 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li><a href="/pages/events.html" class="link">EVENTS</a></li>
                     
                     <li class="logo-item">
+                        
                         <div class="image">
-                            <img src="MUN.png" alt="MUN Logo">
+                            <a href="/pages/home.html">
+                                <img src="/images/MUN.png" alt="MUN Logo">
+                            </a>
                         </div>
                     </li>
 

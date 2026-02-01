@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +12,7 @@ body {
 
 /* Navbar Styles */
 .navbar {
-    background: linear-gradient(180deg, #023C89 0%, #023C89 100%);
+    background: linear-gradient(180deg, #1a4d8f 0%, #0d3d7a 100%);
     width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -92,6 +93,19 @@ body {
     height: 100%;
 }
 
+/* Image logo styles */
+.image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
 /* Mobile Menu Button */
 .mobile-menu-btn {
     display: none;
@@ -125,59 +139,6 @@ body {
 
 .mobile-menu-btn.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
-}
-
-.image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.image img {
-    width: 55px; 
-    height: 55px;
-    object-fit: contain;  
-}
-
-button{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-
-/* Main Content */
-.main-content {
-    max-width: 1400px;
-    margin: auto;
-}
-
-#mainImage{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-.background{
-    background-color: #895129;
-}
-
-.hero {
-    text-align: center;
-    padding: 60px 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.hero h1 {
-    color: #0d3d7a;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    color: #555;
-    font-size: 1.2rem;
 }
 
 /* Responsive Design */
@@ -245,14 +206,6 @@ button{
     .link.active::after {
         display: none;
     }
-
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -266,7 +219,8 @@ button{
         height: 50px;
     }
 
-    .hero {
-        padding: 40px 15px;
+    .image img {
+        width: 50px;
+        height: 50px;
     }
 }
