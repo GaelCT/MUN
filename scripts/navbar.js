@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li class="logo-item">
                         
                         <div class="image">
-                            <a href="/pages/home.html">
+                            <a href="../pages/home.html">
                                 <img src="../images/MUN.png" alt="MUN Logo">
                             </a>
                         </div>

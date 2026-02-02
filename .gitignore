@@ -26,6 +26,7 @@ coverage/
 node_modules/
 
 # Environment files
+/server/.env
 .env
 .env.local
 .env.*.local
