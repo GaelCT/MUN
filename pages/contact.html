@@ -5,9 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/contact.css">
 </head>
-<body>
+<body style="height: 100vh; margin: 0;">
     <div id="navbar-placeholder"></div>
+
+    <div class="main-container">
+        <div class="contact-main-card">
+            <div class="contact-card-info">
+                <div class="contact-card-header">
+                    <h1>Contact Us</h1>
+                </div>
+                <div class="contact-card-form">
+                    <div class="contact-card-inputs">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>  
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" id="submit-button" class="button-66"><span>Send Message</span></button>
+                </div>
+            </div>
+            <div class="contact-card-image">
+                <img id="contact-image" src="../images/frontPage.PNG" alt="Contact Image">
+            </div>
+        </div>
+        <div class="contact-other-card">
+            <h1>Other Ways to Reach Us</h1>
+            <p>You Could contact us through our Instagram account <a href="https://www.instagram.com/csubmun/">@csubmun</a></p>
+        </div>
+
+    </div>
 
     <script src="../scripts/navbar.js"></script>
 </body>
