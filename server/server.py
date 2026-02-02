@@ -27,7 +27,7 @@ def contact():
 
     # Send email using Resend SDK
     r = resend.Emails.send({
-        "from": "onboarding@resend.dev",  # You can keep this or change to another email
+        "from": "contact@toonhosting.net",  # You can keep this or change to another email
         "to": os.getenv("RECIPIENT", "michaelguillory3@gmail.com"),      # Recipient email
         "subject": f"New Contact Form Message from {name}",
         "html": html_content
