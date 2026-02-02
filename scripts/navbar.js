@@ -3,22 +3,22 @@ document.addEventListener('DOMContentLoaded', function() {
         <nav class="navbar">
             <div class="nav-container">
                 <ul class="nav-links">
-                    <li><a href="/pages/home.html" class="link">HOME</a></li>
-                    <li><a href="/pages/about.html" class="link">MEET THE TEAM</a></li>
-                    <li><a href="/pages/events.html" class="link">EVENTS</a></li>
+                    <li><a href="../pages/home.html" class="link">HOME</a></li>
+                    <li><a href="../pages/about.html" class="link">MEET THE TEAM</a></li>
+                    <li><a href="../pages/events.html" class="link">EVENTS</a></li>
                     
                     <li class="logo-item">
                         
                         <div class="image">
                             <a href="/pages/home.html">
-                                <img src="/images/MUN.png" alt="MUN Logo">
+                                <img src="../images/MUN.png" alt="MUN Logo">
                             </a>
                         </div>
                     </li>
 
-                    <li><a href="/pages/resources.html" class="link">RESOURCES</a></li>
-                    <li><a href="/pages/faqs.html" class="link">FAQS</a></li>
-                    <li><a href="/pages/contact.html" class="link">CONTACT</a></li>
+                    <li><a href="../pages/resources.html" class="link">RESOURCES</a></li>
+                    <li><a href="../pages/faqs.html" class="link">FAQS</a></li>
+                    <li><a href="../pages/contact.html" class="link">CONTACT</a></li>
                 </ul>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
