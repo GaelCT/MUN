@@ -3,17 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-            <!--
+    <title>Gallery</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <!--
         You should put the MUN logo into the tab
         <link rel="shortcut icon" href="./favicon.png" /> -->
-
 </head>
 <body>
+    <div id="navbar-placeholder"></div>
 
-    div.
+    <div class="container">
+        <h1 class="gallery-title">Photo Gallery</h1>
+        <div class="gallery-grid">
+            <div class="cards">
+                <img src="../images/delegates.jpg" alt="Delegates">
+                <br>
+                <h3>CSUB MUN Delegates</h3>
+            </div>
+            <div class="cards">
+                <img src="../images/dinner.jpg" alt="Dinner">
+                <br>
+                <h3>CSUB MUN delegates at LAMUN XX enjoying dinner</h3>
+            </div>
+            <div class="cards">
+                <img src="../images/ElotePresent.jpg" alt="Elote Present">
+                <br>
+                <h3>President Elliott giving a presentation on what to expect</h3>
+            </div>
+            <div class="cards">
+                <img src="../images/General.jpg" alt="General">
+                <br>
+                <h3>01/23/26 MUN General Meeting</h3>
+            </div>
+            <div class="cards">
+                <img src="../images/image8.jpg" alt="Image 8">
+                <br>
+                <h3>Club Promotion Day</h3>
+            </div>
+            <div class="cards">
+                <img src="../images/image19.jpg" alt="Image 19">
+                <br>
+                <h3>CSUB MUN delegates working hard</h3>
+            </div>
+            <!-- <div class="cards">
+                <img src="../images/MunTeam.jpg" alt="Mum Team">
+                <br>
+                <h3></h3>
+            </div> -->
+            <div class="cards">
+                <img src="../images/Nayen!.jpg" alt="Nayeni">
+                <br>
+                <h3>Vice President Nayen explaining the differences between committees</h3>
+            </div>
+        </div>
+    </div>
 
-    
-
+    <script src="../scripts/navbar.js"></script>
+    <script src="../scripts/script.js"></script>
 </body>
 </html>
+
+<style scoped>
+
+    h3{
+        color: black;
+    }
+    
+    body{
+        overflow-y: scroll;
+    }
+
+    .container {
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    .gallery-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        color: #333;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 25px;
+        padding: 20px 0;
+    }
+
+    .cards {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: #f5f5f5;
+        padding: 10px;
+    }
+
+    .cards:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .cards img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .cards:hover img {
+        transform: scale(1.05);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .gallery-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-title {
+            font-size: 2rem;
+        }
+
+        .cards img {
+            height: 200px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
