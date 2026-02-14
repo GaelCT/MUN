@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <nav class="navbar">
             <div class="nav-container">
                 <ul class="nav-links">
-                    <li><a href="../pages/home.html" class="link">HOME</a></li>
+                    <li><a href="../pages/index.html" class="link">HOME</a></li>
                     <li><a href="../pages/about.html" class="link">MEET THE TEAM</a></li>
                     <li><a href="../pages/events.html" class="link">EVENTS</a></li>
                     
