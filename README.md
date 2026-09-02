@@ -1,4 +1,4 @@
-# MUN - Museum or University Network System
+# MUN - MODEL UNITED NATIONS - CSUB 
 
 This repository contains a complete web application for managing and displaying newsletter PDFs, gallery images, and providing contact functionality. The system combines multiple technologies to create a cohesive web experience.
 
