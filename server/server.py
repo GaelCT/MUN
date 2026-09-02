@@ -36,6 +36,14 @@ def contact():
     print(r)  # optional: prints Resend response in console
     return redirect('/thank-you')
 
+@app.route('/newletter')
+def newsletter():
+    newsletter = get_latest_newsletter()
+    return render_template(
+        'newsletter.html',
+        newsletter_filename=newsletter_filename
+    )
+
 @app.route('/thank-you')
 def thank_you():
     return "<h1>Thank you! Your message has been sent.</h1>"
