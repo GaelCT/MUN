@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </li>
 
                     <li><a href="../pages/resources.html" class="link">RESOURCES</a></li>
+                    <li><a href="../pages/newsletter.html" class="link">NEWSLETTER</a></li>
                     <li><a href="../pages/faqs.html" class="link">FAQS</a></li>
                     <li><a href="../pages/contact.html" class="link">CONTACT</a></li>
                     <li><a href="../pages/admin.php" class="link">ADMIN</a></li>
