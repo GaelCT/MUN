@@ -1,9 +1,9 @@
-<?php
+﻿<?php
 session_start();
 
 $admin_password = "mun2025";
 $upload_dir = "../uploads/";
-$newsletter_dir = "../assests/";
+$newsletter_dir = "../assets/";
 $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'application/pdf'];
 $max_size = 5 * 1024 * 1024;
 
@@ -69,12 +69,13 @@ if (isset($_SESSION['admin_logged_in']) && isset($_POST['upload'])) {
                 if ($category === "newsletter" && $ext === "pdf") {
                     $dest = $newsletter_dir . "newsletter.pdf";
                     if (file_exists($dest) && !$overwrite) {
-                        $upload_msg .= "A newsletter.pdf already exists in assests/. Check overwrite to replace.<br>";
+$upload_msg .= "A newsletter.pdf already exists in assets/. Check 
+overwrite to replace.<br>";
                         continue;
                     }
                     if (move_uploaded_file($tmp, $dest)) {
                         if (file_exists($dest)) {
-                            $upload_msg .= "Newsletter PDF saved to assests/<br>";
+                            $upload_msg .= "Newsletter PDF saved to assets/<br>";
                         } else {
                             $upload_msg .= "Newsletter PDF uploaded<br>";
                         }
@@ -107,7 +108,7 @@ if (isset($_SESSION['admin_logged_in']) && isset($_POST['delete'])) {
             $upload_msg = "Deleted $file from uploads<br>";
         } elseif (file_exists($path_newsletter)) {
             unlink($path_newsletter);
-            $upload_msg = "Deleted $file from assests<br>";
+            $upload_msg = "Deleted $file from assets<br>";
         } else {
             $upload_msg = "File not found: $file<br>";
         }
@@ -205,7 +206,7 @@ if (is_dir($upload_dir)) {
                     <input type="file" name="images[]" accept="image/*,.pdf" multiple required>
                     <input type="submit" name="upload" value="Upload Files">
                 </form>
-                <p><small>Allowed: JPG, PNG, GIF, WebP, PDF • Max 5MB each</small></p>
+                <p><small>Allowed: JPG, PNG, GIF, WebP, PDF â€¢ Max 5MB each</small></p>
             </div>
 
             <h2>Uploaded Files (<?= count($images) ?>)</h2>
@@ -217,7 +218,7 @@ if (is_dir($upload_dir)) {
                         $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
                         $is_pdf = ($ext === 'pdf');
                         $is_newsletter = ($img === 'newsletter.pdf');
-                        $img_path = $is_newsletter ? '../assests/' : '../uploads/';
+                        $img_path = $is_newsletter ? '../assets/' : '../uploads/';
                     ?>
                         <div class="image-item">
                             <?php if ($is_pdf): ?>
