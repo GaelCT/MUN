@@ -116,67 +116,6 @@ MUN/
 4. **View** - Files appear immediately in the gallery
 5. **Delete** - Admin can remove unwanted files
 
-## Getting Started
-
-### Running the Services
-
-#### 1. PHP Server (for static pages and file access)
-```bash
-cd MUN
-php -S localhost:8000 -t pages
-```
-
-Access at: `http://localhost:8000/`
-
-#### 2. Flask Email Server
-```bash
-cd server
-source requirements.txt  # Install dependencies: flask, resend
-python server.py
-```
-
-Access at: `http://localhost:5000/` (for contact form)
-
-### Installation Steps
-
-1. **Install Python dependencies** (in server directory):
-   ```bash
-   pip install flask resend
-   ```
-
-2. **Set environment variables** (optional but recommended):
-   ```bash
-   export RESEND_API_KEY="your_api_key_here"
-   export RECIPIENT="your_email@example.com"
-   ```
-
-3. **Start servers**
-   - Start PHP server first (for static pages)
-   - Start Flask server separately
-
-### File Upload Workflow
-
-1. **Access admin.php** at `http://localhost:8000/admin.php`
-2. **Login** with password: `mun2025`
-3. **Choose upload category**: Gallery or Newsletter
-4. **Upload files**:
-   - For gallery: Images (JPG, PNG, GIF, WebP)
-   - For newsletter: PDF files
-5. **File naming**: Use date patterns like `SEPT NEWSLETTER.09-02-2006.pdf`
-
-## Configuration
-
-### Admin Password
-- Password: `mun2025` (hardcoded in admin.php for security)
-
-### File Upload Limits
-- Maximum file size: 5MB per file
-- Allowed types: JPG, PNG, GIF, WebP, PDF
-
-### Security
-- CSRF protection for admin uploads
-- Password protection for admin panel
-- Input validation for file types
 
 ## Troubleshooting
 
