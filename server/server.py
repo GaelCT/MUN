@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect, render_template
 import resend
 import os
+from scripts.updateURL import get_latest_newsletter
 
 app = Flask(__name__)
 
@@ -36,9 +37,9 @@ def contact():
     print(r)  # optional: prints Resend response in console
     return redirect('/thank-you')
 
-@app.route('/newletter')
+@app.route('/newsletter')
 def newsletter():
-    newsletter = get_latest_newsletter()
+    newsletter_filename = get_latest_newsletter()
     return render_template(
         'newsletter.html',
         newsletter_filename=newsletter_filename

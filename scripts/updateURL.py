@@ -7,7 +7,7 @@ from datetime import datetime
 
 def get_latest_newsletter():
 
-    folder = "static/assets"
+    folder = "assets"
     date_regex = r"(\d{2})-(\d{2})-(\d{4})"
 
     newsletters = []
