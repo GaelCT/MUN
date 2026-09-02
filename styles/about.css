@@ -1,0 +1,231 @@
+/* About Us Page Styles */
+
+.about-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-header h1 {
+    color: #0d3d7a;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.about-header p {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+/* Mission Section */
+.mission {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.mission h2 {
+    color: #0d3d7a;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.mission p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Officers Section */
+.officers-section {
+    margin-bottom: 60px;
+}
+
+.officers-section h2 {
+    text-align: center;
+    color: #0d3d7a;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.officers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Officer Card */
+.officer-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.officer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.officer-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a4d8f 0%, #0d3d7a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.officer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.officer-card:hover .officer-image img {
+    transform: scale(1.05);
+}
+
+.officer-info {
+    padding: 25px;
+}
+
+.officer-info h3 {
+    color: #0d3d7a;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.officer-info h4 {
+    color: #d4af37;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.officer-info p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Join Section */
+.join-section {
+    background: linear-gradient(135deg, #1a4d8f 0%, #0d3d7a 100%);
+    color: white;
+    padding: 50px 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.join-section h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.join-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.join-btn {
+    display: inline-block;
+    background-color: #d4af37;
+    color: #0d3d7a;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.join-btn:hover {
+    background-color: #f4d03f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about-header h1 {
+        font-size: 2rem;
+    }
+
+    .about-header p {
+        font-size: 1rem;
+    }
+
+    .officers-section h2 {
+        font-size: 2rem;
+    }
+
+    .officers-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .officer-image {
+        height: 250px;
+    }
+
+    .mission {
+        padding: 30px 20px;
+    }
+
+    .join-section {
+        padding: 40px 25px;
+    }
+
+    .join-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .join-section p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .officers-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .officer-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .officer-info h4 {
+        font-size: 1rem;
+    }
+
+    .officer-image {
+        height: 220px;
+    }
+}

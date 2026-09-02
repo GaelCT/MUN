@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li><a href="../pages/index.html" class="link">HOME</a></li>
                     <li><a href="../pages/about.html" class="link">MEET THE TEAM</a></li>
                     <li><a href="../pages/events.html" class="link">EVENTS</a></li>
+                    <li><a href="../pages/gallery.php" class="link">GALLERY</a></li>
                     
                     <li class="logo-item">
                         
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li><a href="../pages/resources.html" class="link">RESOURCES</a></li>
                     <li><a href="../pages/faqs.html" class="link">FAQS</a></li>
                     <li><a href="../pages/contact.html" class="link">CONTACT</a></li>
+                    <li><a href="../pages/admin.php" class="link">ADMIN</a></li>
                 </ul>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">

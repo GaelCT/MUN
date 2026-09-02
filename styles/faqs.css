@@ -1,0 +1,155 @@
+/* Need to have this css as a component */
+/* Reset and Base Styles */
+/* Main Content */
+.main-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* FAQ Header */
+.faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-header h1 {
+    color: #0d3d7a;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.faq-header p {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+/* FAQ Container */
+.faq-container {
+    margin-bottom: 60px;
+}
+
+/* Accordion Button */
+.accordion {
+    background-color: white;
+    color: #0d3d7a;
+    cursor: pointer;
+    padding: 20px 25px;
+    width: 80%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.accordion:hover {
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.accordion.active {
+    background: linear-gradient(135deg, #1a4d8f 0%; #0d3d7a 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(13, 61, 122, 0.3);
+}
+
+.accordion .question {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.accordion .icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.accordion.active .icon {
+    transform: rotate(45deg);
+}
+
+/* Panel (Answer) */
+.panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: white;
+    border-radius: 0 0 8px 8px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    width: 80%;
+    margin: 10px auto;
+}
+
+.panel p {
+    padding: 20px 25px;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0;
+    text-align: left;
+    font-family: 'Open Sans';
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faq-header h1 {
+        font-size: 2rem;
+    }
+
+    .faq-header p {
+        font-size: 1rem;
+    }
+
+    .accordion {
+        font-size: 1rem;
+        padding: 18px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 40px 15px;
+    }
+
+    .faq-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .accordion {
+        font-size: 0.95rem;
+        padding: 15px 18px;
+        width: 90%;
+    }
+
+    .accordion .icon {
+        font-size: 1.3rem;
+    }
+
+    .panel {
+        width: 90%;
+    }
+
+    .panel p {
+        padding: 15px 18px;
+        font-size: 0.9rem;
+    }
+}
+
+body {
+    overflow-y: scroll;
+}

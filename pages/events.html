@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/events.css">
 </head>
+
 <body>
     <div id="navbar-placeholder"></div>
-    
+
     <div class="container">
         <img src="../images/La.jpg" alt="">
         <div class="text">
-            EVENTS ⤫ 2026   
+            EVENTS ⤫ 2026
         </div>
     </div>
 
@@ -33,7 +36,9 @@
             <div class="event-details">
                 <h3>LAMUN XXI</h3>
                 <p class="event-info">907 Westwood Blvd #432, Los Angeles, CA<br>8:00 am — 5:00 pm</p>
-                <p class="event-description">AMUN XXI marks a new chapter in our conference’s legacy. As the #1 ranked West Coast collegiate conference, LAMUN has always pushed the boundaries of what Model UN can be.</p>
+                <p class="event-description">AMUN XXI marks a new chapter in our conference’s legacy. As the #1 ranked
+                    West Coast collegiate conference, LAMUN has always pushed the boundaries of what Model UN can be.
+                </p>
             </div>
         </div>
         <!--
@@ -71,148 +76,7 @@
     </div>
 
     <script src="../scripts/navbar.js"></script>
-    
+
 </body>
+
 </html>
-
-<style scoped>
-    #upcoming {
-        text-align: center;
-        font-family: sans-serif;
-        margin: 40px 0 30px 0;
-        font-size: 2rem;
-        color: #333;
-    }
-
-    .container {
-        position: relative;
-        display: inline-block;
-        width: 100%;
-    }
-
-    .container img {
-        display: block;
-        width: 100%;
-        height: auto;
-    }
-
-    .text {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        background-color: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 10px;
-        font-size: 38px;
-        font-family: none;
-    }
-
-    .events {
-        max-width: 80%;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    .event {
-        display: grid;
-        grid-template-columns: 10% 30% 1fr;
-        gap: 3%;
-        padding: 30px 20px;
-        border-bottom: 1px solid #e0e0e0;
-        align-items: start;
-    }
-
-    .event:last-child {
-        border-bottom: none;
-    }
-
-    .event-date {
-        text-align: center;
-        color: #666;
-    }
-
-    .event-date .month {
-        font-size: 0.875rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 5px;
-    }
-
-    .event-date .day {
-        font-size: 1.75rem;
-        font-weight: 300;
-        line-height: 1;
-    }
-
-    .event-image {
-        width: 100%;
-    }
-
-    .event-image img {
-        width: 100%;
-        height: 20vh;
-        object-fit: cover;
-        border-radius: 4px;
-    }
-
-    .event-details {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .event-details h3 {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: #333;
-        margin: 0;
-    }
-
-    .event-info {
-        font-size: 0.875rem;
-        color: #666;
-        margin: 0;
-        line-height: 1.5;
-    }
-
-    .event-description {
-        font-size: 0.9rem;
-        color: #666;
-        line-height: 1.6;
-        margin: 0;
-    }
-
-    .event-link {
-        color: #666;
-        text-decoration: none;
-        font-size: 0.875rem;
-        font-weight: 500;
-        display: inline-block;
-        margin-top: 5px;
-    }
-
-    .event-link:hover {
-        color: #023C89;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .event {
-            grid-template-columns: 60px 1fr;
-            gap: 15px;
-        }
-
-        .event-image {
-            grid-column: 1 / -1;
-        }
-
-        .event-details {
-            grid-column: 1 / -1;
-        }
-
-        .event-date .day {
-            font-size: 2rem;
-        }
-    }
-</style>

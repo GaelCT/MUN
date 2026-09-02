@@ -1,0 +1,95 @@
+.text {
+    position: absolute;
+    top: 16%;
+    margin: auto auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    font-size: 38px;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.hero-btn {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 35px;
+    background: #023C89;
+    color: #fbc638;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    border: 3px solid #fbc638;
+    border-radius: 50px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 10;
+}
+
+.hero-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #fbc638;
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.hero-btn:hover::before {
+    left: 0;
+}
+
+.hero-btn:hover {
+    color: #023C89;
+    border-color: #023C89;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.btn-arrow {
+    font-size: 24px;
+    transition: transform 0.4s ease;
+}
+
+.hero-btn:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+/* Responsive Rules for Mobile */
+@media (max-width: 768px) {
+    .text {
+        font-size: 24px;
+        top: 20%;
+    }
+    .hero-btn {
+        padding: 10px 25px;
+        font-size: 16px;
+        top: 13%;
+    }
+}
+
+@media (max-width: 480px) {
+    .text {
+        font-size: 18px;
+        padding: 8px;
+    }
+    .hero-btn {
+        padding: 8px 20px;
+        font-size: 14px;
+        top: 15%;
+    }
+    .btn-arrow {
+        font-size: 18px;
+    }
+}
