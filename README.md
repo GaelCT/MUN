@@ -14,7 +14,6 @@ This system serves as a content management platform with three main components:
 
 ```
 MUN/
-├── assets/ - Newsletter PDFs and other documents
 ├── images/ - Image files for the gallery
 ├── pages/ - HTML web pages
 │   ├── index.html - Main landing page
@@ -34,7 +33,8 @@ MUN/
 │   ├── server.py - Flask email server with newsletter route
 │   └── test.py - Test email server
 ├── styles/ - CSS styling files
-├── static/ - Static files for the PHP server
+├── static/
+│   └── assets/ - Public newsletter PDFs and other documents
 ├── uploads/ - Uploaded gallery files
 └── PLAN.md - Project documentation
 ```
@@ -48,13 +48,17 @@ MUN/
 - Provides `/newsletter` endpoint to display the latest newsletter PDF
 - Uses Flask templates to render newsletter.html with the newsletter filename
 
-**2. PHP Server (in pages directory)**
-- Serves static HTML pages and uploaded files
+**2. PHP Server (repository root)**
+- Serves the public HTML pages, static files, and uploaded files
 - Runs on port 8000
-- Can be started with: `php -S localhost:8000 -t pages`
+- Can be started with: `php -S localhost:8000 -t .`
+
+The newsletter page loads the canonical `static/assets/newsletter.pdf` file
+directly. This keeps it usable on a regular PHP/static host without requiring
+a Flask route or reverse proxy.
 
 **3. Python Utility (scripts/updateURL.py)**
-- Automatically finds the latest newsletter PDF from the assets folder
+- Automatically finds the latest newsletter PDF from `static/assets/`
 - Uses filename patterns like `SEPT NEWSLETTER.09-02-2006.pdf` to extract dates
 - Returns the most recent PDF that has been released
 
@@ -76,7 +80,7 @@ MUN/
 - Supports multiple file types (images and PDFs)
 - Separate categories: Gallery images and Newsletter PDFs
 - Gallery images go to `uploads/` folder
-- Newsletter PDFs go to `assets/` folder
+- Newsletter PDFs go to `static/assets/`
 - Includes CSRF protection for security
 
 ### Static Assets
@@ -104,8 +108,8 @@ MUN/
 ### 2. Newsletter Flow
 
 1. **Admin uploads** - Upload a PDF in admin.php with "Newsletter" category
-2. **File naming** - Files should have date patterns like `SEPT NEWSLETTER.09-02-2006.pdf`
-3. **Auto-update** - The system automatically detects the latest PDF
+2. **Canonical file** - The current issue is stored as `static/assets/newsletter.pdf`
+3. **Auto-update** - The system displays that file immediately; dated PDFs remain a fallback for existing content
 4. **Display** - When visitors view the newsletter page, it shows the most recent PDF
 
 ### 3. Gallery Management
@@ -126,8 +130,7 @@ MUN/
 - Directory renamed from assests to assets
 
 **2. Newsletter not showing**
-- Ensure PDFs are named with dates: `NAME MONTH DAY YEAR.pdf`
-- Check that files are in the correct assets/ directory
+- Check that the PDF is in `static/assets/`
 - Verify the Flask server is running
 
 **3. Admin panel access issues**
@@ -143,7 +146,7 @@ MUN/
 To see what's happening:
 1. Check server logs when starting services
 2. Verify file paths in HTML templates
-3. Ensure directories exist (assets/, uploads/, static/)
+3. Ensure directories exist (`static/assets/`, `uploads/`)
 
 ## Future Enhancements
 

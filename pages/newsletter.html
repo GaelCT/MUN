@@ -12,31 +12,50 @@
 <body>
   <div id="navbar-placeholder"></div>
 
-  <!-- <div class="pdf-container"> 
-    <iframe src="../assets/MUN Terms.pdf"></iframe>
-  </div> -->
-
     <div>
   <iframe
-    src="{{ url_for('static', filename='assets/' + newsletter_filename) }}"
+    id="newsletter-pdf"
+    src="../static/assets/newsletter.pdf"
     width="100%"
     height="800px">
 </iframe>
     </div>
 
-  <!-- <div class="pdf-container">
-    <iframe src="../assets/MUN Terms.pdf"></iframe>
-  </div> -->
-  <!-- <div class="resources-links">
-    <h2>More Resources</h2>
-    <a href="../pages/newsletter.html" target="_blank">Newsletter</a>
-  </div> -->
-
   <script src="../scripts/navbar.js"></script>
   <script src="../scripts/script.js"></script>
-  <script src="../scripts/updateURL.js" ></script>
+  <script>
+    const newsletterPdf = document.getElementById('newsletter-pdf');
+    const newsletterUrl = '../static/assets/newsletter.pdf';
+    const newsletterVersionUrl = '../static/assets/newsletter-version.json';
+    let newsletterVersion = null;
+
+    async function refreshNewsletterWhenChanged() {
+      try {
+        const response = await fetch(newsletterVersionUrl, {
+          cache: 'no-store'
+        });
+        if (!response.ok) {
+          return;
+        }
+
+        const { version: nextVersion } = await response.json();
+        if (!nextVersion) {
+          return;
+        }
+
+        if (newsletterVersion && nextVersion !== newsletterVersion) {
+          newsletterPdf.src = `${newsletterUrl}?version=${encodeURIComponent(nextVersion)}`;
+        }
+
+        newsletterVersion = nextVersion;
+      } catch (error) {
+        console.warn('Unable to check for a newsletter update.', error);
+      }
+    }
+
+    refreshNewsletterWhenChanged();
+    setInterval(refreshNewsletterWhenChanged, 5000);
+  </script>
   </body>
 
 </html>
-
-<script>

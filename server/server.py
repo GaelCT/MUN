@@ -1,9 +1,23 @@
+from pathlib import Path
+import sys
+
 from flask import Flask, request, redirect, render_template
 import resend
 import os
+
+# Make imports and file locations work whether this is started from the
+# repository root or with ``python server/server.py``.
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from scripts.updateURL import get_latest_newsletter
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder=str(PROJECT_ROOT / "pages"),
+    static_folder=str(PROJECT_ROOT / "static"),
+)
 
 # Set your Resend API key (or use environment variable)
 resend.api_key = os.getenv("RESEND_API_KEY", "YOUR_API_KEY_HERE")

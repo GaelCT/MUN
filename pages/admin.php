@@ -2,10 +2,18 @@
 session_start();
 
 $admin_password = "mun2025";
-$upload_dir = "../uploads/";
-$newsletter_dir = "../assets/";
+$project_root = realpath(__DIR__ . "/..");
+$upload_dir = $project_root . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR;
+$newsletter_dir = $project_root . DIRECTORY_SEPARATOR . "static" . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR;
 $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'application/pdf'];
 $max_size = 5 * 1024 * 1024;
+
+// Keep filesystem destinations independent of the PHP process working directory.
+foreach ([$upload_dir, $newsletter_dir] as $directory) {
+    if (!is_dir($directory)) {
+        mkdir($directory, 0755, true);
+    }
+}
 
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -44,6 +52,9 @@ if (isset($_SESSION['admin_logged_in']) && isset($_POST['upload'])) {
         $upload_msg = "CSRF validation failed<br>";
     } else {
         $category = isset($_POST['category']) ? $_POST['category'] : "gallery";
+        if (!in_array($category, ['gallery', 'newsletter'], true)) {
+            $category = "gallery";
+        }
         $overwrite = isset($_POST['overwrite']) ? true : false;
 
         if (isset($_FILES['images'])) {
@@ -74,10 +85,12 @@ overwrite to replace.<br>";
                         continue;
                     }
                     if (move_uploaded_file($tmp, $dest)) {
-                        if (file_exists($dest)) {
-                            $upload_msg .= "Newsletter PDF saved to assets/<br>";
-                        } else {
-                            $upload_msg .= "Newsletter PDF uploaded<br>";
+                        $upload_msg .= "Newsletter PDF saved to static/assets/<br>";
+                        $version = json_encode([
+                            'version' => date('c') . '-' . bin2hex(random_bytes(8))
+                        ]);
+                        if (file_put_contents($newsletter_dir . 'newsletter-version.json', $version, LOCK_EX) === false) {
+                            $upload_msg .= "Newsletter saved, but open pages may need a manual refresh.<br>";
                         }
                     } else {
                         $upload_msg .= "Upload failed: $name<br>";
@@ -124,6 +137,17 @@ if (is_dir($upload_dir)) {
         }
     }
     rsort($images);
+}
+
+$newsletters = [];
+if (is_dir($newsletter_dir)) {
+    $files = scandir($newsletter_dir);
+    foreach ($files as $file) {
+        if ($file !== '.' && $file !== '..' && strtolower(pathinfo($file, PATHINFO_EXTENSION)) === 'pdf') {
+            $newsletters[] = $file;
+        }
+    }
+    rsort($newsletters);
 }
 ?>
 <!DOCTYPE html>
@@ -209,7 +233,7 @@ if (is_dir($upload_dir)) {
                 <p><small>Allowed: JPG, PNG, GIF, WebP, PDF â€¢ Max 5MB each</small></p>
             </div>
 
-            <h2>Uploaded Files (<?= count($images) ?>)</h2>
+            <h2>Gallery Files (<?= count($images) ?>)</h2>
             <?php if (empty($images)): ?>
                 <p>No files uploaded yet.</p>
             <?php else: ?>
@@ -217,8 +241,7 @@ if (is_dir($upload_dir)) {
                     <?php foreach ($images as $img):
                         $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
                         $is_pdf = ($ext === 'pdf');
-                        $is_newsletter = ($img === 'newsletter.pdf');
-                        $img_path = $is_newsletter ? '../assets/' : '../uploads/';
+                        $img_path = '../uploads/';
                     ?>
                         <div class="image-item">
                             <?php if ($is_pdf): ?>
@@ -233,6 +256,28 @@ if (is_dir($upload_dir)) {
                             <form method="POST" style="margin:0;">
                                 <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                                 <input type="hidden" name="delete" value="<?= htmlspecialchars($img) ?>">
+                                <button type="submit" class="delete-btn" onclick="return confirm('Delete this file?')">Delete</button>
+                            </form>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
+            <h2>Newsletter PDFs (<?= count($newsletters) ?>)</h2>
+            <?php if (empty($newsletters)): ?>
+                <p>No newsletter has been uploaded yet.</p>
+            <?php else: ?>
+                <div class="image-grid">
+                    <?php foreach ($newsletters as $newsletter): ?>
+                        <div class="image-item">
+                            <a href="../static/assets/<?= rawurlencode($newsletter) ?>" target="_blank" style="display: block; padding: 2rem; text-align: center;">
+                                <span style="font-size: 2rem;">PDF</span>
+                                <br>
+                                <small><?= htmlspecialchars($newsletter) ?></small>
+                            </a>
+                            <form method="POST" style="margin:0;">
+                                <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+                                <input type="hidden" name="delete" value="<?= htmlspecialchars($newsletter) ?>">
                                 <button type="submit" class="delete-btn" onclick="return confirm('Delete this file?')">Delete</button>
                             </form>
                         </div>
