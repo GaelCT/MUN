@@ -4,10 +4,100 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    min-height: 100%;
+}
+
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f5f5;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Pushes the footer to the bottom of normal short pages. */
+footer.footer {
+    margin-top: auto;
+}
+
+/* The home hero should meet its footer without a blank spacer on mobile. */
+body.home-page footer.footer {
+    margin-top: 0;
+}
+
+.footer {
+    background: linear-gradient(160deg, #023C89 0%, #012d6b 100%);
+    color: #ffffff;
+    padding: 48px 60px 28px;
+    position: relative;
+    margin-top: auto;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #fbc638, #f4d03f, #fbc638);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 36px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 320px;
+}
+
+.footer-brand-name {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fbc638;
+}
+
+.footer-brand-desc {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.75;
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.footer-copy,
+.footer-school {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
 }
 
 /* Navbar Styles */
@@ -195,6 +285,45 @@ button{
 }
 
 @media (max-width: 768px) {
+    .footer {
+        padding: 36px 24px 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 6px;
+    }
+
+    .background,
+    body.home-page,
+    .container:has(#mainImage) {
+        background-color: #023C89;
+    }
+
+    .container:has(#mainImage) {
+        height: auto;
+        min-height: 0;
+    }
+
+    #mainImage {
+        position: static;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: top center;
+    }
+
     .mobile-menu-btn {
         display: flex;
     }
