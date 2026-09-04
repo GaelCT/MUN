@@ -178,6 +178,12 @@ if (is_dir($newsletter_dir)) {
         .radio-group label { margin-right: 1rem; cursor: pointer; }
         .checkbox-group { margin: 1rem 0; }
         .checkbox-group label { cursor: pointer; }
+        @media (max-width: 480px) {
+            .admin-container { margin: 1rem auto; padding: 0.75rem; }
+            .login-form, .upload-form { padding: 1.25rem; }
+            .image-grid { grid-template-columns: 1fr; }
+            button, input[type="submit"] { width: 100%; }
+        }
     </style>
 </head>
 <body>

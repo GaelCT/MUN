@@ -69,7 +69,11 @@
 /* Responsive Rules for Mobile */
 @media (max-width: 768px) {
     .text {
-        font-size: 24px;
+        left: 50%;
+        width: calc(100% - 32px);
+        transform: translateX(-50%);
+        text-align: center;
+        font-size: clamp(18px, 5vw, 24px);
         top: 20%;
     }
     .hero-btn {

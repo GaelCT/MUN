@@ -350,20 +350,21 @@ button{
     }
 
     .nav-links.active {
-        max-height: 500px;
+        max-height: calc(100vh - 60px);
         height: auto;
         padding: 20px 0;
+        overflow-y: auto;
     }
 
     .nav-links li {
         width: 100%;
         text-align: center;
-        padding: 15px 0;
+        padding: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .logo-item {
-        margin: 20px 0;
+        margin: 10px 0;
         order: -1;
         border-bottom: none;
     }

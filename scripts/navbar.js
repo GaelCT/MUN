@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li class="logo-item">
                         
                         <div class="image">
-                            <a href="../pages/home.html">
+                            <a href="../pages/index.html">
                                 <img src="../images/MUN.png" alt="MUN Logo">
                             </a>
                         </div>
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li><a href="../pages/admin.php" class="link">ADMIN</a></li>
                 </ul>
                 
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -35,12 +35,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.getElementById('navbar-placeholder').innerHTML = navbarHTML;
     
-    // Highlight active page
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const menuButton = document.getElementById('mobileMenuBtn');
+    const navLinksList = document.querySelector('.nav-links');
+
+    menuButton.addEventListener('click', function() {
+        const isOpen = navLinksList.classList.toggle('active');
+        menuButton.classList.toggle('active', isOpen);
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Highlight the current page and close the phone menu after navigation.
     const links = document.querySelectorAll('.link');
     links.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
+        if (new URL(link.href).pathname === window.location.pathname) {
             link.classList.add('active');
         }
+
+        link.addEventListener('click', function() {
+            navLinksList.classList.remove('active');
+            menuButton.classList.remove('active');
+            menuButton.setAttribute('aria-expanded', 'false');
+        });
     });
 });

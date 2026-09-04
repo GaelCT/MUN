@@ -172,6 +172,14 @@ body {
 /* mobile shit */
 
 @media (max-width: 768px) {
+    .main-container {
+        height: auto;
+        min-height: 0;
+        flex: 1;
+        justify-content: flex-start;
+        padding: 24px 0;
+    }
+
     .contact-card-image {
         display: none;
     }
@@ -182,7 +190,7 @@ body {
 
     .contact-main-card {
         width: 95%;
-        padding: 30px;
+        padding: 24px;
     }
 
     .contact-other-card {
@@ -200,5 +208,15 @@ body {
     .contact-card-form input[type="email"] {
         width: 100%
     }
-    
+}
+
+@media (max-width: 480px) {
+    .contact-main-card {
+        padding: 20px;
+    }
+
+    .contact-card-header h1,
+    .contact-other-card h1 {
+        font-size: 1.5rem;
+    }
 }
